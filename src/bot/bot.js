@@ -177,7 +177,7 @@ class Bot {
    * @returns {Void}
    */
   setTimerAgain(config) {
-    this.setTimers([config]);
+    this.createEvents([config]);
   }
 
   /**

@@ -6,7 +6,7 @@ const initialize = () => {
 
   client.on("ready", () => {
     console.log("I'm loretta, I just woke up.");
-    client.channels.get(process.env.CHANNEL_ID).send(process.env.INIT_MESSAGE);
+    // client.channels.get(process.env.CHANNEL_ID).send(process.env.INIT_MESSAGE);
   });
 
   return client;
