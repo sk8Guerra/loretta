@@ -6,15 +6,14 @@ const {
   buildDate,
   buildNewSettings,
   generateUniqueId,
-  isValidIndex
-} = require("./utils");
+  isValidIndex,
+} = require('./utils');
 
 /**
  * Represents a discord bot.
  * @class
 */
 class Bot {
-
   /**
    * First called when creating a new bot instance.
    * @constructor
@@ -55,8 +54,11 @@ class Bot {
   analizeAndSetTimer(config, day) {
     const currentDate = new Date();
     if (isSameDay(currentDate, day)) {
-      if (isTimeUp(currentDate, config)) { this.setTimerPlusSevenDays(currentDate, config); }
-      else { this.setTimerForToday(currentDate, config); }
+      if (isTimeUp(currentDate, config)) {
+        this.setTimerPlusSevenDays(currentDate, config);
+      } else {
+        this.setTimerForToday(currentDate, config);
+      }
     } else {
       this.setTimerForNextDay(currentDate, config, day);
     }
@@ -133,7 +135,7 @@ class Bot {
   setTimer({ config, futureDate, currentDate }) {
     const interval = setInterval(
       () => this.sendMessage(config),
-      getRemainingMilliseconds(futureDate, currentDate)
+      getRemainingMilliseconds(futureDate, currentDate),
     );
     this.intervals.push({ interval, config });
   }
@@ -183,7 +185,7 @@ class Bot {
   /**
    * Clean expired timer and reset it again.
    * @param {string} intervalId - Used to remove the expired timer.
-   * @returns {Object<config>} config object that represents and event.  
+   * @returns {Object<config>} config object that represents and event.
    */
   cleanExecutedInternal(intervalId) {
     const index = this.intervals.findIndex((interval) => interval.config.id === intervalId);
@@ -193,6 +195,8 @@ class Bot {
       this.removeElement(index);
       return config;
     }
+
+    return null;
   }
 
   /**
