@@ -15,7 +15,7 @@ You will notice that `express` is installed. It is used to make requests every 3
 
 ##### Create a bot
 
-* Go to [Discord](https://discord.com/)
+- Go to [Discord](https://discord.com/)
 - If you don't have an account, create it here 👉🏽 [Register](https://discord.com/register). If you do, just login.
 - Go to [Discord's developer page](https://discord.com/developers/applications/).
 - Click on **Applications tab**, and then hit **New Application** button.
